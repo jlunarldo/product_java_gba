@@ -26,7 +26,7 @@ public class OrderService {
             productService.listProducts();
 
             try {
-                System.out.print("Enter Product ID to add to order: ");
+                System.out.print("Enter Product ID to add: ");
                 int productId = Integer.parseInt(scanner.nextLine());
 
                 Product product = productService.findProductById(productId);
@@ -49,7 +49,7 @@ public class OrderService {
                 orderLines.add(new OrderLine(product, quantity));
 
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter numeric values.");
+                System.out.println("Invalid input.");
             } catch (AppException e) {
                 System.out.println("Error: " + e.getMessage());
             }
@@ -74,7 +74,7 @@ public class OrderService {
 
     public void listOrders() {
         if (orders.isEmpty()) {
-            System.out.println("No orders have been placed yet.");
+            System.out.println("Orders Empty");
         } else {
             for (Order o : orders) {
                 System.out.println(o);
